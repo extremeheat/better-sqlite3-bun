@@ -11,7 +11,7 @@
  *
  * @example
  * ```typescript
- * import { Database } from './backends/sqlite3_api'
+ * import { Database } from 'better-sqlite3-bun'
  *
  * // Works the same regardless of runtime
  * const db = new Database('application.db')
@@ -45,3 +45,4 @@ try {
 }
 
 export { Database }
+
