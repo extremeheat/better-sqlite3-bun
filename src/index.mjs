@@ -9,8 +9,9 @@
  *
  * The implementation is determined once at startup and cached for performance.
  *
+ * @module better-sqlite3-bun
+ *
  * @example
- * ```typescript
  * import { Database } from 'better-sqlite3-bun'
  *
  * // Works the same regardless of runtime
@@ -20,9 +21,17 @@
  * // Prepared statements work as expected
  * const getUser = db.prepare('SELECT * FROM users WHERE id = ?')
  * const user = getUser.get(123)
- * ```
  */
-let Database: typeof import('better-sqlite3')
+
+/**
+ * The `Database` class represents the SQLite database connection.
+ * The actual implementation depends on the detected runtime:
+ * - Bun: uses `bun:sqlite`
+ * - Node.js: uses `better-sqlite3`
+ *
+ * @type {import('better-sqlite3').Database}
+ */
+let Database
 
 try {
   // Try Bun's native SQLite first (better performance, no native dependencies required)
@@ -45,4 +54,3 @@ try {
 }
 
 export { Database }
-
