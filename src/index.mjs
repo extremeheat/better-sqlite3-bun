@@ -38,7 +38,7 @@ try {
   // @ts-ignore - Bun's built-in modules are not recognized by TypeScript in non-Bun environments
   const sqlite3 = await import('bun:sqlite')
   Database = sqlite3.Database
-  Database.pragma = () => {}
+  Database.prototype.pragma = () => {}
 } catch {
   // Fall back to better-sqlite3 for Node.js environments
   try {
@@ -55,4 +55,5 @@ try {
 }
 
 export { Database }
+
 
