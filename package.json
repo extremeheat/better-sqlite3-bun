@@ -2,7 +2,7 @@
   "name": "better-sqlite3-bun",
   "version": "1.0.0",
   "description": "A template repository to make it easy to create new prismarine repo",
-  "main": "src/index.mjs",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha --reporter spec --exit",
     "pretest": "npm run lint",

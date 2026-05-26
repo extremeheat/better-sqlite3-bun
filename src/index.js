@@ -36,14 +36,13 @@ let Database
 try {
   // Try Bun's native SQLite first (better performance, no native dependencies required)
   // @ts-ignore - Bun's built-in modules are not recognized by TypeScript in non-Bun environments
-  const sqlite3 = await import('bun:sqlite')
+  const sqlite3 = require('bun:sqlite')
   Database = sqlite3.Database
   Database.prototype.pragma = () => {}
 } catch {
   // Fall back to better-sqlite3 for Node.js environments
   try {
-    const sqlite3 = require('better-sqlite3')
-    Database = sqlite3.Database
+    Database = require('better-sqlite3')
   } catch (error) {
     throw new Error(
       'SQLite database initialization failed. ' +
@@ -54,6 +53,4 @@ try {
   }
 }
 
-export { Database }
-
-
+module.exports = { Database }
