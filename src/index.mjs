@@ -42,8 +42,8 @@ try {
 } catch {
   // Fall back to better-sqlite3 for Node.js environments
   try {
-    const sqlite3 = await import('better-sqlite3')
-    Database = sqlite3.default
+    const sqlite3 = require('better-sqlite3')
+    Database = sqlite3.Database
   } catch (error) {
     throw new Error(
       'SQLite database initialization failed. ' +
