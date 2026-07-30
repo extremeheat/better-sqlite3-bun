@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/extremeheat/better-sqlite3-bun#readme",
   "optionalDependencies": {
-    "better-sqlite3": "^12.0.0"
+    "better-sqlite3": "^13.0.2"
   },
   "devDependencies": {
     "better-sqlite3-bun": "file:.",
